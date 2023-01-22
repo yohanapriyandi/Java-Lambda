@@ -4,5 +4,5 @@ package ardhastudio.lambda;
 public interface SimpleAction {
 
     // nilai balikan berupa String
-    String action();
+    String action(String name);
 }
