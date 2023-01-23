@@ -2,6 +2,7 @@ package App;
 
 import util.StringUtil;
 
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class MethodReferenceApp {
@@ -23,6 +24,11 @@ public class MethodReferenceApp {
         System.out.println(predicateToLowercase.test("eko"));
         System.out.println(predicateToLowercase.test("EKO"));
         System.out.println(predicateToLowercase.test("EKo"));
+
+        //Method reference di parameter
+        Function<String, String> functionUpper = String::toUpperCase;
+        System.out.println(functionUpper.apply("Yohan"));
+
     }
 
     public void run(){
