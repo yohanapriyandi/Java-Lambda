@@ -4,9 +4,16 @@ import java.util.function.Supplier;
 
 public class LazyApp {
     public static void main(String[] args) {
-        testScore(72, ()-> getName());
+        /**
+         * ketika menggunakan lazy parameter
+         * ketika nilai dari testScore() tidak memenuhi maka
+         * getName() tidak akan dipanggil
+         * berbeda apabila kita tidak menggunakan lazy parameter
+         * getName() akan dipanggiil karena pada dasarnya semua method di java adalah eager
+         */
+        testScore(80, ()-> getName());
     }
-
+    // tidak menggunakan lazy parameter
 //    public static void testScore(int score, String name){
 //        if (score > 80){
 //            System.out.println("Selamat " + name + ", Anda lulus");
@@ -17,7 +24,7 @@ public class LazyApp {
 //    }
     // menggunakan lazy parameter
     public static void testScore(int score, Supplier<String> name){
-        if (score > 80){
+        if (score >= 80){
             System.out.println("Selamat " + name.get() + ", Anda lulus");
         }else {
             System.out.println("Coba lagi tahun depan");
